@@ -115,7 +115,7 @@
             <!-- QR-Code -->
             <div class="mail-qr-code">
               <h2>Zur An-/Abmeldung bei EventAcces:</h2>
-              <a [href]="'http://localhost:4200/' + event.url">
+              <a [href]="event.url">
                 <img 
                   [src]="'http://localhost:5000/public' + event.qr_image" 
                   alt="QR Code" 
