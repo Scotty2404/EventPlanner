@@ -107,7 +107,7 @@ INSERT INTO `playlist` (`playlist_id`) VALUES
 
 CREATE TABLE `qr_code` (
   `qr_id` int(11) NOT NULL,
-  `url` varchar(255) NOT NULL,
+  `url` varchar(1000) NOT NULL,
   `access_token` varchar(255) DEFAULT NULL,
   `qr_image` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;

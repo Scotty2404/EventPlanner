@@ -8,6 +8,9 @@ const jwt = require('jsonwebtoken'); // For JWT tokens
 const multer = require('multer');
 const { authMiddleware } = require('./authRoutes');
 
+// provide baseurl of server
+const serverUrl = "http://localhost:4200";
+
 // Ensure the QR code directory exists
 const qrCodeDir = path.join(__dirname, '../public/qr-codes');
 if (!fs.existsSync(qrCodeDir)) {
@@ -139,7 +142,7 @@ router.post('/create', authMiddleware, upload.single('image'), async (req, res) 
                     // Generate QR Code with event ID and access token
                     try {
                         // The URL now includes the access token
-                        const qrData = `EventPlannerFrontend/event/${eventId}?token=${accessToken}`; //for local dev-server: http://localhost:4200/EventPlannerFrontend/...
+                        const qrData = `${serverUrl}/EventPlannerFrontend/event/${eventId}?token=${accessToken}`; //for local dev-server: http://localhost:4200/EventPlannerFrontend/...
                         const qrFileName = `event-${eventId}-${Date.now()}.png`;
                         const qrFilePath = path.join(qrCodeDir, qrFileName);
                         const qrRelativePath = `/qr-codes/${qrFileName}`;
